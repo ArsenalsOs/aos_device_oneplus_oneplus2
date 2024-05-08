@@ -4,3 +4,6 @@ allow netmgrd self:capability { sys_resource };
 
 get_prop(netmgrd, radio_prop)
 get_prop(netmgrd, default_prop)
+
+allow netmgrd netd_service:service_manager { find };
+allow netmgrd dnsresolver_service:service_manager { find };

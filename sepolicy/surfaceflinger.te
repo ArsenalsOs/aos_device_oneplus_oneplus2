@@ -1,1 +1,3 @@
 get_prop(surfaceflinger, vendor_default_prop)
+
+allow surfaceflinger vendor_file:file { execute getattr open read };

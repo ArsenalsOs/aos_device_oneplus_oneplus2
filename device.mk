@@ -81,9 +81,13 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl \
     android.hardware.audio.service \
     android.hardware.audio.effect@5.0-impl \
+    android.hardware.soundtrigger@2.0 \
+    android.hardware.soundtrigger@2.0-core \
     android.hardware.soundtrigger@2.0-impl
 
 PRODUCT_PACKAGES += \
+    audio.primary.default \
+    libaudioroute \
     audio.primary.msm8994 \
     audio.r_submix.default \
     audio.usb.default \
@@ -125,7 +129,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.msm8994 \
     libshim_atomic \
-    sensors.hal.tof
+    sensors.hal.tof \
+    libyuv \
+    libexif
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -170,7 +176,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     gps.msm8994 \
     flp.conf \
     gps.conf \
@@ -261,6 +267,7 @@ PRODUCT_COPY_FILES += \
 
 # OMX
 PRODUCT_PACKAGES += \
+    libminijail:32 \
     libc2dcolorconvert \
     libOmxAacEnc \
     libOmxAmrEnc \
@@ -279,11 +286,6 @@ PRODUCT_PACKAGES += \
 # Privapp Whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml
-
-# Protobuf
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v28/arm64/arch-arm-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v28.so \
-    prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-full-v28.so
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -309,6 +311,9 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2 \
     rild_socket
+
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v33/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v33.so
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -356,7 +361,7 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service
+    android.hardware.wifi@1.0-service.legacy
 
 PRODUCT_PACKAGES += \
     ipacm \

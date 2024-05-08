@@ -76,23 +76,23 @@ static int des_init_key(EVP_CIPHER_CTX *ctx, const uint8_t *key,
 
 static int des_ecb_cipher(EVP_CIPHER_CTX *ctx, uint8_t *out, const uint8_t *in,
                           size_t in_len) {
-  if (in_len < ctx->cipher->block_size) {
+  if (in_len < EVP_CIPHER_CTX_block_size(EVP_CIPHER_CTX_cipher(ctx))) {
     return 1;
   }
-  in_len -= ctx->cipher->block_size;
+  in_len -= EVP_CIPHER_CTX_block_size(EVP_CIPHER_CTX_cipher(ctx));
 
   EVP_DES_KEY *dat = (EVP_DES_KEY *) ctx->cipher_data;
-  for (size_t i = 0; i <= in_len; i += ctx->cipher->block_size) {
+  for (size_t i = 0; i <= in_len; i += EVP_CIPHER_CTX_block_size(EVP_CIPHER_CTX_cipher(ctx))) {
     DES_ecb_encrypt((DES_cblock *) (in + i), (DES_cblock *) (out + i),
                     &dat->ks.ks, ctx->encrypt);
   }
   return 1;
 }
 
-static const EVP_CIPHER des_ecb = {
-    NID_des_ecb,         8 /* block_size */,  8 /* key_size */,
-    0 /* iv_len */,      sizeof(EVP_DES_KEY), EVP_CIPH_ECB_MODE,
-    NULL /* app_data */, des_init_key,        des_ecb_cipher,
-    NULL /* cleanup */,  NULL /* ctrl */, };
+//static const EVP_CIPHER des_ecb = {
+//    NID_des_ecb,         8 /* block_size */,  8 /* key_size */,
+//    0 /* iv_len */,      sizeof(EVP_DES_KEY), EVP_CIPH_ECB_MODE,
+//    NULL /* app_data */, des_init_key,        des_ecb_cipher,
+//    NULL /* cleanup */,  NULL /* ctrl */, };
 
-const EVP_CIPHER *EVP_des_ecb(void) { return &des_ecb; }
+//const EVP_CIPHER *EVP_des_ecb(void) { return &des_ecb; }

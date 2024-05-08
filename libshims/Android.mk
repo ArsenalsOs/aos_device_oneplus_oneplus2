@@ -19,7 +19,6 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := rild_socket.c
 LOCAL_MODULE := rild_socket
 LOCAL_MODULE_TAGS := optional
-LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -28,7 +27,6 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := atomic.cpp
 LOCAL_MODULE := libshim_atomic
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -38,7 +36,6 @@ LOCAL_SRC_FILES := libaudioclient_shim.cpp
 LOCAL_MODULE := libaudioclient_shim
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_SHARED_LIBRARIES := libaudioclient
-LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -51,7 +48,6 @@ LOCAL_SHARED_LIBRARIES := libstagefright_foundation libui libgui libmedia
 LOCAL_MODULE := libshims_ims
 LOCAL_MODULE_TAGS := optional
 LOCAL_MULTILIB := 64
-LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -79,7 +75,6 @@ LOCAL_SRC_FILES := libshims_postproc.cpp
 LOCAL_CFLAGS := -Wno-unused-parameter
 LOCAL_MODULE := libshims_postproc
 LOCAL_MODULE_TAGS := optional
-LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)

@@ -30,7 +30,6 @@ LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 LOCAL_SHARED_LIBRARIES := libdl libcutils liblog
 LOCAL_HEADER_LIBRARIES += camera_common_headers
 LOCAL_MODULE_TAGS := optional
-LOCAL_VENDOR_MODULE := true
 
 LOCAL_32_BIT_ONLY := true
 include $(BUILD_SHARED_LIBRARY)

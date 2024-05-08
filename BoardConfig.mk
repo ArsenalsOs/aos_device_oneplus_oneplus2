@@ -35,6 +35,9 @@ PLATFORM_PATH := device/oneplus/oneplus2
 
 BOARD_VENDOR := oneplus
 
+# Apex
+OVERRIDE_TARGET_FLATTEN_APEX := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8994
 TARGET_NO_BOOTLOADER := true
@@ -193,3 +196,7 @@ TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
 
 # inherit from the proprietary version
 include vendor/oneplus/oneplus2/BoardConfigVendor.mk
+
+PRODUCT_VENDOR_MOVE_ENABLED := true
+
+#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive

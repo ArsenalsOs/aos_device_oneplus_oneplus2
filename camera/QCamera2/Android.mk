@@ -69,12 +69,11 @@ LOCAL_HEADER_LIBRARIES := display_headers generated_kernel_headers
 
 LOCAL_SHARED_LIBRARIES := libcamera_client liblog libhardware libutils libcutils libdl
 LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libui libcamera_metadata
-LOCAL_SHARED_LIBRARIES += libqdMetaData libstagefrighthw
+LOCAL_SHARED_LIBRARIES += libqdMetaData.system libstagefrighthw
 
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
 LOCAL_MODULE_TAGS := optional
-LOCAL_VENDOR_MODULE := true
 
 LOCAL_32_BIT_ONLY := true
 include $(BUILD_SHARED_LIBRARY)
